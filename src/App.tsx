@@ -7,7 +7,7 @@ import { CricketGamePlayPage } from "./Pages/Games/CricketGamePlayPage";
 import { PlayersPage } from "./Pages/Settings/PlayersPage";
 import * as React from "react";
 
-export default function App() {
+export function App() {
   return (
     <Router>
       <Switch>

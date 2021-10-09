@@ -4,8 +4,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext",
-      "scripthost"
+      "esnext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,7 +17,6 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
     "jsx": "react"
   },
   "include": [
