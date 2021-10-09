@@ -2494,7 +2494,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
+"@types/react@npm:*, @types/react@npm:^17.0.27":
   version: 17.0.27
   resolution: "@types/react@npm:17.0.27"
   dependencies:
@@ -2502,16 +2502,6 @@ __metadata:
     "@types/scheduler": "*"
     csstype: ^3.0.2
   checksum: 3a1147d963c16dc9bbea5afb20c4be94f2389cf4eca4c5fbe9b02f3406bd9957602c0459ea017c95f8c3d523221f572e8bd842f94654835776d4c2923357f9dc
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:17.0.0":
-  version: 17.0.0
-  resolution: "@types/react@npm:17.0.0"
-  dependencies:
-    "@types/prop-types": "*"
-    csstype: ^3.0.2
-  checksum: 0767d1c635613cb08de1ad6b8f73e3ee01ae0069733fa56382c72a8dbed741849e74f62a17756c7b76ccd2b57dd9891d5767c3134f35788720c6bb9c186a933b
   languageName: node
   linkType: hard
 
@@ -2561,6 +2551,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/w3c-image-capture@npm:^1.0.5":
+  version: 1.0.5
+  resolution: "@types/w3c-image-capture@npm:1.0.5"
+  dependencies:
+    "@types/webrtc": "*"
+  checksum: 4f2b8d1d2203a0337e2b7beac13b14d95ddfa6187632a62115e44d04ad9750e4c9e629495acdb34259c908dde056e7b90d0ed47af550c8dd62370b5930ec29ef
+  languageName: node
+  linkType: hard
+
 "@types/webpack-sources@npm:*":
   version: 3.2.0
   resolution: "@types/webpack-sources@npm:3.2.0"
@@ -2583,6 +2582,13 @@ __metadata:
     anymatch: ^3.0.0
     source-map: ^0.6.0
   checksum: 8aa4b4ad68bb7a6ee5bd027005014e6242434162ed4c14cd251713ad6041e42bf7629fc56a5edc5a2124b49cc0dce273d6ee3386fae9a9cfe02e1f7e82087ea2
+  languageName: node
+  linkType: hard
+
+"@types/webrtc@npm:*":
+  version: 0.0.30
+  resolution: "@types/webrtc@npm:0.0.30"
+  checksum: a545cc881a60fc7d6209912dd417df7463a741801045cd572b2d0603e8777b8cb96fb9b2b02f1b42daff1e2bcd230a1248de44772ff592816538067be37daa81
   languageName: node
   linkType: hard
 
@@ -5230,17 +5236,18 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "dartboard-v2@workspace:."
   dependencies:
-    "@types/react": 17.0.0
+    "@types/react": ^17.0.27
     "@types/react-dom": 17.0.0
     "@types/react-router": 5.1.14
     "@types/react-router-dom": 5.1.7
+    "@types/w3c-image-capture": ^1.0.5
     react: 17.0.2
     react-dom: 17.0.2
     react-router: 5.2.0
     react-router-dom: 5.2.0
     react-scripts: 4.0.3
     sass: ^1.42.1
-    typescript: 4.1.3
+    typescript: 3.9.10
   languageName: unknown
   linkType: soft
 
@@ -14379,23 +14386,23 @@ resolve@^2.0.0-next.3:
   languageName: node
   linkType: hard
 
-typescript@4.1.3:
-  version: 4.1.3
-  resolution: "typescript@npm:4.1.3"
+typescript@3.9.10:
+  version: 3.9.10
+  resolution: "typescript@npm:3.9.10"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 0a25f7d7cebbc5ad23f41cb30918643460477be265bd3bcd400ffedb77d16e97d46f2b0c31393b2f990c5cf5b9f7a829ad6aff8636988b8f30abf81c656237c0
+  checksum: 46c842e2cd4797b88b66ef06c9c41dd21da48b95787072ccf39d5f2aa3124361bc4c966aa1c7f709fae0509614d76751455b5231b12dbb72eb97a31369e1ff92
   languageName: node
   linkType: hard
 
-"typescript@patch:typescript@4.1.3#~builtin<compat/typescript>":
-  version: 4.1.3
-  resolution: "typescript@patch:typescript@npm%3A4.1.3#~builtin<compat/typescript>::version=4.1.3&hash=32657b"
+"typescript@patch:typescript@3.9.10#~builtin<compat/typescript>":
+  version: 3.9.10
+  resolution: "typescript@patch:typescript@npm%3A3.9.10#~builtin<compat/typescript>::version=3.9.10&hash=32657b"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: f7de4f06a6407a8dfaf97eaa19bc457df860a522e9a9b75a95be23bd8fa09af3104c05e5fe2a9b7fa5c74d1f7790cf7dd61c8f7a78dfcf70000ff85a27dc3541
+  checksum: 8dcd46a8a2cb81198497f00c7721a34c914bf6b3241bf9687b868bdec9e59f1f44da41e7917cfc1dcabee4595229c73bab047f2d85c1aedacc0d1b526cc81534
   languageName: node
   linkType: hard
 

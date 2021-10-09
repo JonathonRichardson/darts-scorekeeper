@@ -5,6 +5,7 @@ import { X01GamesPage } from "./Pages/Games/X01GamesPage";
 import { CricketGameMenuPage } from "./Pages/Games/CricketGameMenuPage";
 import { CricketGamePlayPage } from "./Pages/Games/CricketGamePlayPage";
 import { PlayersPage } from "./Pages/Settings/PlayersPage";
+import * as React from "react";
 
 export default function App() {
   return (

@@ -12,7 +12,7 @@ export class PlayersPage extends React.Component<IProps, IState> {
         video: true
       });
       let imageCapture = new ImageCapture(stream.getVideoTracks()[0]);
-      let photo = await imageCapture.takePhoto(imageCapture);
+      let photo = await imageCapture.takePhoto({});
       console.log("photo", photo);
     } catch (e) {
       console.error("failed", e);
