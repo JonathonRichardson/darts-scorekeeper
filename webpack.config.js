@@ -1,20 +1,42 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const ReactRefreshPlugin = require("@pmmmwh/react-refresh-webpack-plugin");
+const ForkTsCheckerWebpackPlugin = require("fork-ts-checker-webpack-plugin");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ReactRefreshTypeScript = require("react-refresh-typescript");
+
+const isDevelopment = process.env.NODE_ENV !== "production";
 
 module.exports = {
-    devServer: {
-        port: 9000,
+  mode: isDevelopment ? "development" : "production",
+  entry: {
+    main: "./src/index.tsx",
+  },
+  devServer: {
+    port: 9000,
     //static: './dist',
-    },
-    mode: "development",
-  entry: './src/index.tsx',
+    hot: true,
+  },
   module: {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
+        include: path.join(__dirname, "src"),
+        use: [
+          {
+            loader: "ts-loader",
+            options: {
+              configFile: isDevelopment ? "tsconfig.dev.json" : "tsconfig.json",
+              transpileOnly: true,
+              ...(isDevelopment && {
+                getCustomTransformers: () => ({
+                  before: [ReactRefreshTypeScript()],
+                }),
+              }),
+            },
+          },
+        ].filter(Boolean),
       },
+
       {
         test: /\.s[ac]ss$/i,
         use: [
@@ -28,19 +50,18 @@ module.exports = {
       },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
-  },
   plugins: [
-     new HtmlWebpackPlugin({
-       title: 'Development',
-     }),
-   ],
-  devtool: 'inline-source-map',
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
-        publicPath: '/',
-
+    isDevelopment && new ReactRefreshPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      filename: "./index.html",
+      template: "./public/index.html",
+    }),
+  ].filter(Boolean),
+  resolve: {
+    extensions: [".js", ".ts", ".tsx"],
   },
+  output: {
+    publicPath: "/",
+  }
 };

@@ -8,6 +8,8 @@
     "@types/react-router-dom": "5.1.7",
     "@types/w3c-image-capture": "^1.0.5",
     "css-loader": "^6.3.0",
+    "events": "^3.3.0",
+    "fork-ts-checker-webpack-plugin": "^6.3.4",
     "html-webpack-plugin": "^5.3.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
@@ -19,12 +21,17 @@
     "style-loader": "^3.3.0",
     "ts-loader": "^9.2.6",
     "webpack": "^5.58.1",
-    "webpack-cli": "^4.9.0"
+    "webpack-cli": "^4.9.0",
+    "webpack-dev-server": "^4.3.1"
   },
   "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.1",
     "@types/react": "^17.0.27",
     "@types/react-dom": "17.0.0",
-    "typescript": "3.9.10"
+    "react-refresh": "^0.10.0",
+    "react-refresh-typescript": "^2.0.2",
+    "type-fest": "^2.3.4",
+    "typescript": "4.4.3"
   },
   "scripts": {
     "start": "react-scripts start",
