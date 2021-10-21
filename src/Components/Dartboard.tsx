@@ -46,10 +46,20 @@ export class Dartboard extends React.Component<IProps, IState> {
         <circle r={OVERALL_BOARD_DIAMETER / 2} fill="black" /> */}
 
         {/* Single Bull */}
-        <circle r={OUTER_BULL_INSIDE_DIAMETER / 2} fill="green" />
+        <circle r={OUTER_BULL_INSIDE_DIAMETER / 2} fill="green" onClick={() => {
+          this.props.onSegmentClick && this.props.onSegmentClick({
+            type: 'Outer',
+            value: 'Bull',
+          })
+        }} />
 
         {/* Double Bull */}
-        <circle r={BULL_INSIDE_DIAMETER / 2} fill="red" />
+        <circle r={BULL_INSIDE_DIAMETER / 2} fill="red" onClick={() => {
+          this.props.onSegmentClick && this.props.onSegmentClick({
+            type: 'Inner',
+            value: 'Bull',
+          })
+        }}/>
 
         {/* {(() => {
           let outerR = 170 - 8;

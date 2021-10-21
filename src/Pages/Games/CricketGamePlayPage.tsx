@@ -113,11 +113,13 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                 Array(count)
                     .fill("")
                     .forEach(() => {
-                        if (resultForValue === 3) {
-                            player.points =
-                                player.points + parseInt(throwResult.value);
-                        } else {
-                            resultForValue = resultForValue + 1;
+                        if (throwResult.value == "Bull" || parseInt(throwResult.value) >= 15) {
+                            if (resultForValue === 3) {
+                                player.points =
+                                    player.points + ((throwResult.value == "Bull") ? 25 : parseInt(throwResult.value));
+                            } else {
+                                resultForValue = resultForValue + 1;
+                            }
                         }
                     });
 
@@ -219,15 +221,17 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         <div style={{ display: "flex" }}>
                             <Button
                                 onClick={() => {
-                                    let game = this.getGame();
+                                    if (game.turnNumber > 0) {
+                                        let game = this.getGame();
 
-                                    let turns = [...game.turns];
+                                        let turns = [...game.turns];
 
-                                    game.turns = turns.slice(0, -1);
-                                    game.turnNumber = game.turnNumber - 1;
+                                        game.turns = turns.slice(0, -1);
+                                        game.turnNumber = game.turnNumber - 1;
 
-                                    this.getDB().saveGame(game);
-                                    this.forceUpdate();
+                                        this.getDB().saveGame(game);
+                                        this.forceUpdate();
+                                    }
                                 }}
                             >
                                 Go To Previous Turn
@@ -287,6 +291,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                                 "18",
                                                 "19",
                                                 "20",
+                                                "Bull",
                                             ].map((segmentId) => {
                                                 let count =
                                                     (score.marks as any)[

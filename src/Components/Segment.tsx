@@ -6,7 +6,7 @@ export type ISegmentType = "Inner" | "Treble" | "Outer" | "Double" | "Label";
 const TREBLE_AND_DOUBLE_WIDTH = 8;
 export const BULL_INSIDE_DIAMETER = 12.7;
 export const OUTER_BULL_INSIDE_DIAMETER = 31.8;
-const CENTER_BULL_TO_INSIDE_EDGE_OF_TREBLE_WIRE = 107;
+const CENTER_BULL_TO_INSIDE_EDGE_OF_TREBLE_WIRE = 95; //107;
 const CENTER_BULL_TO_OUTSIDE_EDGE_OF_DOUBLE_WIRE = 170;
 export const OVERALL_BOARD_DIAMETER = 451;
 
