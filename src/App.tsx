@@ -8,29 +8,34 @@ import { PlayersPage } from "./Pages/Settings/PlayersPage";
 import * as React from "react";
 
 export function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route path="/" exact>
-          <MainPage />
-        </Route>
+    return (
+        <Router>
+            <Switch>
+                <Route path="/" exact>
+                    <MainPage />
+                </Route>
 
-        <Route path="/games/cricket/:id">
-          <CricketGamePlayPage gameId={1} />
-        </Route>
+                <Route
+                    path="/games/cricket/:id"
+                    render={(params) => {
+                        return (
+                            <CricketGamePlayPage gameId={params.match.params["id"]} />
+                        );
+                    }}
+                ></Route>
 
-        <Route path="/games/cricket">
-          <CricketGameMenuPage />
-        </Route>
+                <Route path="/games/cricket">
+                    <CricketGameMenuPage />
+                </Route>
 
-        <Route path="/games/x01">
-          <X01GamesPage />
-        </Route>
+                <Route path="/games/x01">
+                    <X01GamesPage />
+                </Route>
 
-        <Route path="/settings/players">
-          <PlayersPage />
-        </Route>
-      </Switch>
-    </Router>
-  );
+                <Route path="/settings/players">
+                    <PlayersPage />
+                </Route>
+            </Switch>
+        </Router>
+    );
 }
