@@ -87,9 +87,7 @@ export class Dartboard extends React.Component<IProps, IState> {
         {DART_VALUE_ORDER.map((value) => {
           return (
             <>
-              {(["Inner", "Outer", "Treble", "Double", "Label"] as Array<
-                ISegmentType
-              >).map((type) => {
+              {(["Inner", "Outer", "Treble", "Double", "Label"] as ISegmentType[]).map((type) => {
                 return (
                   <Segment
                     value={value}

@@ -1,6 +1,13 @@
 import { render } from "react-dom";
+import * as React from "react"
 
-import App from "./App";
+(window as any).$RefreshReg$ = () => {};
+(window as any).$RefreshSig$ = () => () => {};
 
-const rootElement = document.getElementById("root");
+
+import {App} from "./App";
+
+const rootElement = document.createElement('div');
+document.body.append(rootElement);
+
 render(<App />, rootElement);
