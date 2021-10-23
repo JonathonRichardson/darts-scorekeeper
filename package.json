@@ -10,6 +10,7 @@
     "@types/uuid": "^8.3.1",
     "@types/w3c-image-capture": "^1.0.5",
     "css-loader": "^6.3.0",
+    "cypress": "^8.6.0",
     "events": "^3.3.0",
     "fork-ts-checker-webpack-plugin": "^6.3.4",
     "html-webpack-plugin": "^5.3.2",
