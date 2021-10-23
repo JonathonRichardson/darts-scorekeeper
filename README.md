@@ -2,14 +2,42 @@
 
 ## Prereqs
 
-The only prereq is yarn v2+.
+Yarn v2 is Required.
+
+For Windows, install VSCode, Windows Terminal and [NVM for Windows](https://github.com/coreybutler/nvm-windows)).
+
+Then, open Windows Terminal.
+
+```
+nvm install 14.18.1
+```
+
+Now, open Windows Terminal as an administrator (otherwise the `nvm use` command will error on permissions)
+
+```
+nvm use 14.18.1
+```
+
+Close the admin terminal and go back to your regular one.
+
+```
+npm install --global yarn
+```
+
+You should be ready to go now.
 
 ## Running the Development Site with HMR
+
+The project uses zero installs, however, you still need to run `yarn install` to make sure the packages are configured for your system:
+
+```
+yarn install
+```
 
 To run the development site:
 
 ```
-yarn run webpack serve --hot
+yarn develop
 ```
 
 The app will be available at http://localhost:9000.
