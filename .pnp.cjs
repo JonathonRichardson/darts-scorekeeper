@@ -35,6 +35,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         [null, {
           "packageLocation": "./",
           "packageDependencies": [
+            ["@cypress/skip-test", "npm:2.6.1"],
             ["@pmmmwh/react-refresh-webpack-plugin", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:0.5.1"],
             ["@types/react", "npm:17.0.27"],
             ["@types/react-bootstrap", "npm:0.32.27"],
@@ -45,6 +46,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/w3c-image-capture", "npm:1.0.5"],
             ["css-loader", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:6.3.0"],
             ["cypress", "npm:8.6.0"],
+            ["cypress-localstorage-commands", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:1.6.1"],
             ["events", "npm:3.3.0"],
             ["fork-ts-checker-webpack-plugin", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:6.3.4"],
             ["html-webpack-plugin", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:5.3.2"],
@@ -4212,6 +4214,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["tough-cookie", "npm:2.5.0"],
             ["tunnel-agent", "npm:0.6.0"],
             ["uuid", "npm:8.3.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@cypress/skip-test", [
+        ["npm:2.6.1", {
+          "packageLocation": "./.yarn/cache/@cypress-skip-test-npm-2.6.1-1a037721c0-48ec912f16.zip/node_modules/@cypress/skip-test/",
+          "packageDependencies": [
+            ["@cypress/skip-test", "npm:2.6.1"]
           ],
           "linkType": "HARD",
         }]
@@ -9350,6 +9361,28 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["cypress-localstorage-commands", [
+        ["npm:1.6.1", {
+          "packageLocation": "./.yarn/cache/cypress-localstorage-commands-npm-1.6.1-2e09ea4aa4-9f3fb01a90.zip/node_modules/cypress-localstorage-commands/",
+          "packageDependencies": [
+            ["cypress-localstorage-commands", "npm:1.6.1"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:1.6.1", {
+          "packageLocation": "./.yarn/__virtual__/cypress-localstorage-commands-virtual-f6f3371885/0/cache/cypress-localstorage-commands-npm-1.6.1-2e09ea4aa4-9f3fb01a90.zip/node_modules/cypress-localstorage-commands/",
+          "packageDependencies": [
+            ["cypress-localstorage-commands", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:1.6.1"],
+            ["@types/cypress", null],
+            ["cypress", "npm:8.6.0"]
+          ],
+          "packagePeers": [
+            "@types/cypress",
+            "cypress"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["d", [
         ["npm:1.0.1", {
           "packageLocation": "./.yarn/cache/d-npm-1.0.1-64afbbc689-49ca0639c7.zip/node_modules/d/",
@@ -9375,6 +9408,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["dartboard-v2", "workspace:."],
+            ["@cypress/skip-test", "npm:2.6.1"],
             ["@pmmmwh/react-refresh-webpack-plugin", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:0.5.1"],
             ["@types/react", "npm:17.0.27"],
             ["@types/react-bootstrap", "npm:0.32.27"],
@@ -9385,6 +9419,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/w3c-image-capture", "npm:1.0.5"],
             ["css-loader", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:6.3.0"],
             ["cypress", "npm:8.6.0"],
+            ["cypress-localstorage-commands", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:1.6.1"],
             ["events", "npm:3.3.0"],
             ["fork-ts-checker-webpack-plugin", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:6.3.4"],
             ["html-webpack-plugin", "virtual:8df42c7f3d27d63d52922cba0b6e72187accfa815f287e8711c89c095fe6c50d8b0079d360a2c889e6413b617f71d6de0631bcb887235f3ef5add999c2dfee96#npm:5.3.2"],

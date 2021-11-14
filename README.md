@@ -49,3 +49,11 @@ Cannot GET /games/cricket
 ```
 
 Just alter the address bar manully to go back to back to the site root: `http://localhost:9000/`.
+
+## Running the Test Suites
+
+To run the interactive cypress tests:
+
+```
+yarn run cypress open
+```

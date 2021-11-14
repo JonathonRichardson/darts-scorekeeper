@@ -170,6 +170,7 @@ export class PlayersPage extends React.Component<IProps, IState> {
                     <Modal.Body>
                         <label>Name</label>
                         <input
+                            data-qa-label='name'
                             value={
                                 this.state.modalContents
                                     ? this.state.modalContents.name

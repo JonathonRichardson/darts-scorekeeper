@@ -257,7 +257,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
 
                         <hr />
 
-                        <div style={{ display: "flex" }}>
+                        <div style={{ display:   "flex" }}>
                             {game.players.map((player, playerIndex) => {
                                 let score = currentScores[playerIndex];
 
@@ -277,7 +277,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                         }}
                                     >
                                         <h4>{player.playerInfo.name}</h4>
-                                        <h5>Score: {score.points}</h5>
+                                        <h5>Score: <span data-qa-score-for={player.playerInfo.name}>{score.points}</span></h5>
 
                                         <ol>
                                             {[
