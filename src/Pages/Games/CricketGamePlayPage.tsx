@@ -186,6 +186,11 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                 onClick={() => {
                                     let game = this.getGame();
 
+                                    // Don't let the game unwind completely
+                                    if ((game.turnNumber = 1)) {
+                                        return;
+                                    }
+
                                     let turns = [...game.turns];
 
                                     game.turns = turns.slice(0, -1);
@@ -194,6 +199,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                     this.getDB().saveGame(game);
                                     this.forceUpdate();
                                 }}
+                                disabled={game.turnNumber <= 1}
                             >
                                 Go To Previous Turn
                             </Button>
