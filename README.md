@@ -57,3 +57,9 @@ To run the interactive cypress tests:
 ```
 yarn run cypress open
 ```
+
+To run the command line tests:
+
+```
+yarn jest
+```
