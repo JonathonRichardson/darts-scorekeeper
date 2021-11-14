@@ -60,7 +60,7 @@ context("Cricket", () => {
         // to fail, which is why there are no specific exceptions.
     });
 
-    it.skip('Bugfix #0006 - Hitting the "Go to Previous Turn" Button Before Any Throws Should Not Crash the App', () => {
+    it('Bugfix #0006 - Hitting the "Go to Previous Turn" Button Before Any Throws Should Not Crash the App', () => {
         // Start a new game
         cy.contains("New Game").click();
 
