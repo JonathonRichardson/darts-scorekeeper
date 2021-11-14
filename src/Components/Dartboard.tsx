@@ -1,40 +1,40 @@
 import * as React from "react";
 import {
-  Segment,
-  DART_VALUE_ORDER,
-  ISegmentType,
-  OUTER_BULL_INSIDE_DIAMETER,
-  BULL_INSIDE_DIAMETER,
-  OVERALL_BOARD_DIAMETER,
-  IDartValue
+    Segment,
+    DART_VALUE_ORDER,
+    ISegmentType,
+    OUTER_BULL_INSIDE_DIAMETER,
+    BULL_INSIDE_DIAMETER,
+    OVERALL_BOARD_DIAMETER,
+    IDartValue,
 } from "./Segment";
 
 interface IProps {
-  height?: string;
-  width?: string;
-  notClickable?: boolean;
-  onSegmentClick?: (info: {
-    type: ISegmentType;
-    value: IDartValue | "Bull";
-  }) => void;
+    height?: string;
+    width?: string;
+    notClickable?: boolean;
+    onSegmentClick?: (info: {
+        type: ISegmentType;
+        value: IDartValue | "Bull";
+    }) => void;
 }
 
 interface IState {}
 
 export class Dartboard extends React.Component<IProps, IState> {
-  render() {
-    let clickable = !this.props.notClickable;
-    return (
-      <svg
-        height={this.props.height ? this.props.height : "100vh"}
-        width={this.props.width ? this.props.width : "100vw"}
-        viewBox="-250 -250 500 500"
-        //style={{ transform: "rotate(-0.25turn)" }}
-      >
-        {/* <circle r="170" fill="black" />
+    render() {
+        let clickable = !this.props.notClickable;
+        return (
+            <svg
+                height={this.props.height ? this.props.height : "100vh"}
+                width={this.props.width ? this.props.width : "100vw"}
+                viewBox="-250 -250 500 500"
+                //style={{ transform: "rotate(-0.25turn)" }}
+            >
+                {/* <circle r="170" fill="black" />
         <circle r="162" fill="white" />
         <circle r="115" fill="black" /> */}
-        {/* <circle
+                {/* <circle
           r="53.5"
           fill="none"
           stroke="grey"
@@ -42,16 +42,24 @@ export class Dartboard extends React.Component<IProps, IState> {
           strokeDasharray="16.8 16.8"
           transform="rotate(-10)"
         /> */}
-        {/*         
+                {/*         
         <circle r={OVERALL_BOARD_DIAMETER / 2} fill="black" /> */}
 
-        {/* Single Bull */}
-        <circle r={OUTER_BULL_INSIDE_DIAMETER / 2} fill="green" />
+                {/* Single Bull */}
+                <circle
+                    r={OUTER_BULL_INSIDE_DIAMETER / 2}
+                    data-qa-segment="Single Bull"
+                    fill="green"
+                />
 
-        {/* Double Bull */}
-        <circle r={BULL_INSIDE_DIAMETER / 2} fill="red" />
+                {/* Double Bull */}
+                <circle
+                    r={BULL_INSIDE_DIAMETER / 2}
+                    data-qa-segment="Double Bull"
+                    fill="red"
+                />
 
-        {/* {(() => {
+                {/* {(() => {
           let outerR = 170 - 8;
           let startX = Math.cos((-9 * Math.PI) / 180) * outerR;
           let startY = Math.sin((-9 * Math.PI) / 180) * outerR;
@@ -84,23 +92,33 @@ export class Dartboard extends React.Component<IProps, IState> {
             />
           );
         })()} */}
-        {DART_VALUE_ORDER.map((value) => {
-          return (
-            <>
-              {(["Inner", "Outer", "Treble", "Double", "Label"] as ISegmentType[]).map((type) => {
-                return (
-                  <Segment
-                    value={value}
-                    segmentType={type}
-                    clickable={clickable}
-                    onSegmentClick={this.props.onSegmentClick}
-                  />
-                );
-              })}
-            </>
-          );
-        })}
-      </svg>
-    );
-  }
+                {DART_VALUE_ORDER.map((value) => {
+                    return (
+                        <>
+                            {(
+                                [
+                                    "Inner",
+                                    "Outer",
+                                    "Treble",
+                                    "Double",
+                                    "Label",
+                                ] as ISegmentType[]
+                            ).map((type) => {
+                                return (
+                                    <Segment
+                                        value={value}
+                                        segmentType={type}
+                                        clickable={clickable}
+                                        onSegmentClick={
+                                            this.props.onSegmentClick
+                                        }
+                                    />
+                                );
+                            })}
+                        </>
+                    );
+                })}
+            </svg>
+        );
+    }
 }

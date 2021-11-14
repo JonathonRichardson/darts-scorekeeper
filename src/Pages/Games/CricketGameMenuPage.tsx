@@ -42,7 +42,7 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
 
                 {games.map((game) => {
                     return (
-                        <Card style={{ width: "18rem" }}>
+                        <Card style={{ width: "18rem" }} data-qa-game-id={game.id}>
                             <Card.Body>
                                 <Card.Title>{game.id}</Card.Title>
                                 <Card.Subtitle className="mb-2 text-muted">

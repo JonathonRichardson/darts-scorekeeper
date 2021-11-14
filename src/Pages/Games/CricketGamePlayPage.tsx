@@ -13,6 +13,7 @@ import {
     IThrowResult,
     LocalStorageGameDB,
 } from "../../data/GamesDB";
+import { calculateScores } from "./Cricket/Scorer";
 
 interface IProps {
     gameId: string;
@@ -88,44 +89,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
 
     calculateScores(): IPlayerScore[] {
         let game = this.getGame();
-        let playerScores: IPlayerScore[] = game.players.map(
-            (player, playerIndex) => {
-                return {
-                    points: 0,
-                    marks: {},
-                };
-            }
-        );
 
-        game.turns.forEach((turn, turnIndex) => {
-            let playerIndex = turnIndex % game.players.length;
-            let player = playerScores[playerIndex];
-
-            for (var throwResult of turn) {
-                let count =
-                    throwResult.type === "Double"
-                        ? 2
-                        : throwResult.type === "Treble"
-                        ? 3
-                        : 1;
-
-                let resultForValue = player.marks[throwResult.value] || 0;
-                Array(count)
-                    .fill("")
-                    .forEach(() => {
-                        if (resultForValue === 3) {
-                            player.points =
-                                player.points + parseInt(throwResult.value);
-                        } else {
-                            resultForValue = resultForValue + 1;
-                        }
-                    });
-
-                player.marks[throwResult.value] = resultForValue;
-            }
-        });
-
-        return playerScores;
+        return calculateScores(game);
     }
 
     render() {
@@ -277,7 +242,16 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                         }}
                                     >
                                         <h4>{player.playerInfo.name}</h4>
-                                        <h5>Score: {score.points}</h5>
+                                        <h5>
+                                            Score:{" "}
+                                            <span
+                                                data-qa-score-for={
+                                                    player.playerInfo.name
+                                                }
+                                            >
+                                                {score.points}
+                                            </span>
+                                        </h5>
 
                                         <ol>
                                             {[

@@ -177,6 +177,7 @@ export class Segment extends React.Component<IProps, IState> {
           d={pathData}
           stroke="black"
           fill={color}
+          data-qa-segment={`${this.props.segmentType} ${this.props.value}`}
         />
         {this.props.segmentType === "Label" && (
           <>
