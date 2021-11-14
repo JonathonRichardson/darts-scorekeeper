@@ -24,26 +24,28 @@ export const calculateScores = (
         let player = playerScores[playerIndex];
 
         for (var throwResult of turn) {
-            let count =
-                throwResult.type === "Double"
-                    ? 2
-                    : throwResult.type === "Treble"
-                    ? 3
-                    : 1;
+            if (parseInt(throwResult.value) >= 15) {
+                let count =
+                    throwResult.type === "Double"
+                        ? 2
+                        : throwResult.type === "Treble"
+                        ? 3
+                        : 1;
 
-            let resultForValue = player.marks[throwResult.value] || 0;
-            Array(count)
-                .fill("")
-                .forEach(() => {
-                    if (resultForValue === 3) {
-                        player.points =
-                            player.points + parseInt(throwResult.value);
-                    } else {
-                        resultForValue = resultForValue + 1;
-                    }
-                });
+                let resultForValue = player.marks[throwResult.value] || 0;
+                Array(count)
+                    .fill("")
+                    .forEach(() => {
+                        if (resultForValue === 3) {
+                            player.points =
+                                player.points + parseInt(throwResult.value);
+                        } else {
+                            resultForValue = resultForValue + 1;
+                        }
+                    });
 
-            player.marks[throwResult.value] = resultForValue;
+                player.marks[throwResult.value] = resultForValue;
+            }
         }
     });
 

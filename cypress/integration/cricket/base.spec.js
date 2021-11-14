@@ -77,7 +77,7 @@ context("Cricket", () => {
         // to fail, which is why there are no specific exceptions.
     });
 
-    it.skip("Bugfix #0007 - Points Are Not Scored for Segments 1-14", () => {
+    it("Bugfix #0007 - Points Are Not Scored for Segments 1-14", () => {
         // Start a new game
         cy.contains("New Game").click();
 
