@@ -60,7 +60,7 @@ context("Cricket", () => {
         // to fail, which is why there are no specific exceptions.
     });
 
-    it.skip('Bugfix #0006 - Hitting the "Go to Previous Turn" Button Before Any Throws Should Not Crash the App', () => {
+    it('Bugfix #0006 - Hitting the "Go to Previous Turn" Button Before Any Throws Should Not Crash the App', () => {
         // Start a new game
         cy.contains("New Game").click();
 
@@ -71,10 +71,7 @@ context("Cricket", () => {
 
         cy.get('[data-qa-game-id="0"]').find("a").contains("Play Game").click();
 
-        cy.get("button").contains("Go To Previous Turn").click();
-
-        // This bug would cause the app to throw and exception and crash here, which causes the test
-        // to fail, which is why there are no specific exceptions.
+        cy.get("button").contains("Go To Previous Turn").should("be.disabled");
     });
 
     it("Bugfix #0007 - Points Are Not Scored for Segments 1-14", () => {
