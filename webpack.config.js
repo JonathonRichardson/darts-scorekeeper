@@ -11,10 +11,12 @@ module.exports = {
     entry: {
         main: "./src/index.tsx",
     },
+    devtool: isDevelopment ? "eval-source-map" : "source-map",
     devServer: {
         port: 9000,
         //static: './dist',
         hot: true,
+        historyApiFallback: true,
     },
     module: {
         rules: [
