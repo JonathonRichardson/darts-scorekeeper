@@ -6,23 +6,39 @@ import { Dartboard } from "../Components/Dartboard";
 interface IProps {}
 
 export const MainPage: React.FunctionComponent<IProps> = (props) => {
-  return (
-    <div className="pages--main">
-      <h1>Shot Tracker</h1>
-      <Dartboard height="200" width="200" notClickable />
+    return (
+        <div className="pages--main">
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                }}
+            >
+                <h1>Score Keeper</h1>
+            </div>
 
-      <Link className="link" to="/games/cricket">
-        Cricket
-      </Link>
-      <br />
-      <Link className="link" to="/games/x01">
-        X01 Games
-      </Link>
-      <br />
+            <div
+                style={{
+                    display: "flex",
+                    alignItems: "center",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    marginBottom: 60,
+                }}
+            >
+                <Dartboard height="400" width="400" notClickable />
+            </div>
 
-      <Link className="link" to="/settings/players">
-        Players
-      </Link>
-    </div>
-  );
+            <Link className="link" to="/games/cricket">
+                Play Cricket
+            </Link>
+            <br />
+
+            <Link className="link" to="/settings/players">
+                Edit Players
+            </Link>
+        </div>
+    );
 };
