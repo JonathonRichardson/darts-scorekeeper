@@ -7,7 +7,7 @@
     padding: 20px;
     justify-content: center;
     background-color: #0b0e17;
-    color: #4bb0c5;
+    color: #20bdf7;
 
     h1 {
         margin-bottom: 60px;
@@ -20,7 +20,7 @@
         border-radius: 15px;
         text-decoration: none;
         background-color: #0c1920;
-        color: #4bb0c5;
+        color: #20bdf7;
         font-size: 60px;
         font-weight: bold;
         text-align: center;
@@ -37,7 +37,7 @@
     padding: 60px;
     justify-content: space-between;
     background-color: #0b0e17;
-    color: #4bb0c5;
+    color: #20bdf7;
 
     h1 {
         margin-bottom: 60px;
@@ -50,7 +50,7 @@
         border-radius: 15px;
         text-decoration: none;
         background-color: #0c1920;
-        color: #4bb0c5;
+        color: #20bdf7;
         font-size: 60px;
         font-weight: bold;
         text-align: center;
@@ -77,6 +77,10 @@
                 border: 2px solid #90a7b785;
                 width: 150px;
                 height: 150px;
+
+                image {
+                    //filter: grayscale(100%) url(#f1) brightness(130%);
+                }
             }
 
             .player-card-title {

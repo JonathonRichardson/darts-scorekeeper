@@ -16,7 +16,7 @@ export const MainPage: React.FunctionComponent<IProps> = (props) => {
                     justifyContent: "center",
                 }}
             >
-                <h1>Score Keeper</h1>
+                <h1>Shot Tracker</h1>
             </div>
 
             <div

@@ -126,7 +126,10 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                                                                             //         0  0  0  1 0"
                                                                             //values="0.24 0.24 0.24 0 0 0.33 0.33 0.33 0 0 0.74 0.74 0.74 0 0 0 0 0 1 0"
                                                                             //values="0.14 0.14 0.14 0 0 0.13 0.13 0.13 0 0 0.89 0.89 0.89 0 0 0 0 0 1 0"
-                                                                            values="0.14 0.14 0.14 0 0 0.13 0.13 0.13 0 0 0.4 0.4 0.4 0 0 0 0 0 1 0"
+                                                                            //values="0.14 0.14 0.14 0 0 0.13 0.13 0.13 0 0 0.4 0.4 0.4 0 0 0 0 0 1 0"
+                                                                            values="0.14 0.14 0.14 0 0 0.14 0.14 0.14 0 0 0.27 0.27 0.27 0 0 0 0 0 1 0"
+                                                                            //values="0.14 0.14 0.14 0 0 0.13 0.13 0.13 0 0 0.35 0.35 0.35 0 0 0 0 0 1 0"
+                                                                            //values="0.14 0.14 0.14 0 0 0.13 0.13 0.13 0 0 0.30 0.30 0.30 0 0 0 0 0 1 0"
                                                                         />
                                                                     </filter>
                                                                 </defs>
@@ -136,7 +139,10 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                                                                     //width="150"
                                                                     height="150"
                                                                     preserveAspectRatio="true"
-                                                                    filter="url(#f1)"
+                                                                    style={{
+                                                                        filter: "grayscale(100%) url(#f1)",
+                                                                    }}
+                                                                    // /filter="url(#f1)"
                                                                     //xlinkHref={url}
                                                                     xlinkHref={
                                                                         p
@@ -299,15 +305,16 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                             backgroundColor: "#0c1920",
                             padding: "20px 10px",
                             border: "1px solid #195a85",
-                            color: "#4bb0c5",
+                            color: "#20bdf7",
                             width: 200,
                             height: 200,
+                            borderRadius: 21,
                         }}
                     >
                         <Link
                             to="/"
                             style={{
-                                color: "#4bb0c5",
+                                color: "#20bdf7",
                                 textDecoration: "none",
                                 fontSize: 40,
                                 fontWeight: "bold",
@@ -335,11 +342,12 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                             backgroundColor: "#0c1920",
                             padding: "20px 10px",
                             border: "1px solid #195a85",
-                            color: "#4bb0c5",
+                            color: "#20bdf7",
                             width: 200,
                             height: 200,
                             fontSize: 40,
                             fontWeight: "bold",
+                            borderRadius: 21,
                         }}
                     >
                         +

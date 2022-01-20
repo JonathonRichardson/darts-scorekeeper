@@ -1,0 +1,141 @@
+.cricket--game-play-page {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    background-color: #0c1920;
+    color: #20bdf7;
+    grid-template-columns: 100px auto 100px;
+    grid-template-rows: 330px auto 300px;
+    grid-template-areas:
+        "header header header"
+        ".      main   sidebar"
+        "footer footer footer";
+
+    header {
+        grid-area: header;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .blocks {
+            background-color: #112f3f;
+            border: 1px solid #195a85;
+            border-radius: 5px;
+            color: #20bdf7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 30px;
+
+            .round-number {
+                font-size: 55px;
+            }
+        }
+
+        .blocks,
+        img {
+            margin-right: 30px;
+            height: 150px;
+        }
+    }
+
+    section.main {
+        grid-area: main;
+
+        border-top: 1px solid #195a85;
+        border-bottom: 1px solid #195a85;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .scorecard {
+            margin: 10px;
+            padding: 0px;
+            width: 150px;
+
+            > ol {
+                margin: 0;
+                padding: 0;
+            }
+
+            &.active:not(.labels) {
+                outline: 1px solid white;
+                padding: 10px;
+                padding-top: 0px;
+                background-color: white;
+                border-radius: 10px;
+
+                li {
+                    background-color: #205470;
+                }
+            }
+
+            &:not(.active) {
+                opacity: 0.6;
+            }
+
+            &:not(.labels) {
+                li {
+                    font-size: 65px;
+                    border-top: 1px solid white;
+                    border-left: 1px solid white;
+                    border-right: 1px solid white;
+                    background-color: #112f3f;
+
+                    &:last-of-type {
+                        border-bottom: 1px solid white;
+                        border-radius: 0px 0px 10px 10px;
+                    }
+
+                    height: 99px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+
+            &.labels {
+                padding-top: 35px;
+
+                li {
+                    font-size: 35px;
+                    height: 99px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+
+    footer {
+        grid-area: footer;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .nav-button {
+            height: 200px;
+            width: 200px;
+            margin-right: 40px;
+            background-color: #112f3f;
+            border: 1px solid #195a85;
+            border-radius: 5px;
+            color: #20bdf7;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 34px;
+        }
+    }
+}
