@@ -1,0 +1,91 @@
+$gutter-size: 100px;
+
+.players-page {
+    // Make the page the whole screen
+    height: 100vh;
+    width: 100vw;
+
+    // Main page theme
+    background-color: #0c1920;
+
+    color: #20bdf7;
+
+    // Set up the grid with a header and a footer
+    display: grid;
+    grid-template-columns: $gutter-size auto $gutter-size;
+    grid-template-rows: 200px auto 200px;
+    grid-template-areas:
+        "header header header"
+        ".      main   ."
+        "footer footer footer";
+
+    .header {
+        grid-area: header;
+
+        // Center the title
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .main {
+        grid-area: main;
+    }
+
+    .footer {
+        grid-area: footer;
+
+        // We want to make three sections:
+        //
+        //     +----------------------------------------+
+        //     +   <-- Left -- | center | -- Right -->  +
+        //     +----------------------------------------+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        .center {
+            flex: 0 0 300px;
+
+            // Center content
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .center-button {
+                $button-diameter: 150px;
+
+                // Make it a circle
+                width: $button-diameter;
+                height: $button-diameter;
+                border-radius: $button-diameter / 2;
+
+                background-color: #112f3f;
+                border: 3px solid #195a85;
+
+                font-size: 30px;
+            }
+        }
+
+        // The "wings" should grow equally
+        .left-wing,
+        .right-wing {
+            // 20px is kind of arbitrary here, it just ensures that the two wings are
+            // equal in size, rather than using their content widths as the starting
+            // point for calculations.
+            flex: 1 1 20px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+
+            &.left-wing {
+                justify-content: right;
+            }
+
+            &.right-wing {
+                justify-content: left;
+            }
+        }
+    }
+}

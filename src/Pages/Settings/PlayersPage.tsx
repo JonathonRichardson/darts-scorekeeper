@@ -4,6 +4,7 @@ import { LocalStoragePlayerDB, IPlayer } from "../../data/PlayerDB";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import { v4 } from "uuid";
+import "./PlayersPage.scss";
 
 interface IProps {}
 
@@ -100,176 +101,190 @@ export class PlayersPage extends React.Component<IProps, IState> {
     render() {
         let playersDb = new LocalStoragePlayerDB();
         return (
-            <>
-                <h2>
-                    <Link to="/">&lt; Home</Link>
-                </h2>
-                <h1>Players</h1>
-                <hr />
-
-                <div style={{ display: "flex" }}>
-                    {playersDb.getPlayers().map((player) => {
-                        return (
-                            <div className="card" style={{ width: "18rem" }}>
-                                <img
-                                    src={player.profilePic}
-                                    className="card-img-top"
-                                    alt="..."
-                                />
-                                <div className="card-body">
-                                    <h5 className="card-title">
-                                        {player.name}
-                                    </h5>
-                                    {/* <p className="card-text">
+            <div className="players-page">
+                <header className="header">
+                    <h1>Players</h1>
+                </header>
+                <main className="main">
+                    <div style={{ display: "flex" }}>
+                        {playersDb.getPlayers().map((player) => {
+                            return (
+                                <div
+                                    className="card"
+                                    style={{ width: "18rem" }}
+                                >
+                                    <img
+                                        src={player.profilePic}
+                                        className="card-img-top"
+                                        alt="..."
+                                    />
+                                    <div className="card-body">
+                                        <h5 className="card-title">
+                                            {player.name}
+                                        </h5>
+                                        {/* <p className="card-text">
                                         Some quick example text to build on the
                                         card title and make up the bulk of the
                                         card's content.
                                     </p> */}
 
-                                    <Button
-                                        onClick={() => {
-                                            this.setState({
-                                                modalContents: player,
-                                            });
-                                        }}
-                                    >
-                                        Edit
-                                    </Button>
+                                        <Button
+                                            onClick={() => {
+                                                this.setState({
+                                                    modalContents: player,
+                                                });
+                                            }}
+                                        >
+                                            Edit
+                                        </Button>
 
-                                    <Button
-                                        variant="danger"
-                                        onClick={() => {
-                                            playersDb.deletePlayer(player);
-                                            this.forceUpdate();
-                                        }}
-                                    >
-                                        Delete
-                                    </Button>
+                                        <Button
+                                            variant="danger"
+                                            onClick={() => {
+                                                playersDb.deletePlayer(player);
+                                                this.forceUpdate();
+                                            }}
+                                        >
+                                            Delete
+                                        </Button>
+                                    </div>
                                 </div>
-                            </div>
-                        );
-                    })}
-                </div>
-
-                {playersDb.getPlayers().length == 0 && (
-                    <div className="alert alert-dark" role="alert">
-                        There are no players yet
+                            );
+                        })}
                     </div>
-                )}
 
-                <Modal show={!!this.state.modalContents}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>
-                            Create User{" "}
-                            {this.state.modalContents
-                                ? ` (${this.state.modalContents.id}`
-                                : null}{" "}
-                        </Modal.Title>
-                    </Modal.Header>
+                    {playersDb.getPlayers().length == 0 && (
+                        <div className="alert alert-dark" role="alert">
+                            There are no players yet
+                        </div>
+                    )}
 
-                    <Modal.Body>
-                        <label>Name</label>
-                        <input
-                            data-qa-label='name'
-                            value={
-                                this.state.modalContents
-                                    ? this.state.modalContents.name
-                                    : ""
-                            }
-                            onChange={(e) => {
-                                let newVal = e.target.value;
+                    <Modal show={!!this.state.modalContents}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>
+                                Create User{" "}
+                                {this.state.modalContents
+                                    ? ` (${this.state.modalContents.id}`
+                                    : null}{" "}
+                            </Modal.Title>
+                        </Modal.Header>
 
-                                this.setState((curState) => {
-                                    return {
-                                        ...curState,
-                                        modalContents: {
-                                            ...curState.modalContents,
-                                            name: newVal,
-                                        },
-                                    };
-                                });
-                            }}
-                        />
+                        <Modal.Body>
+                            <label>Name</label>
+                            <input
+                                data-qa-label="name"
+                                value={
+                                    this.state.modalContents
+                                        ? this.state.modalContents.name
+                                        : ""
+                                }
+                                onChange={(e) => {
+                                    let newVal = e.target.value;
 
-                        <video
-                            ref={this.ref$video}
-                            id="video"
-                            width="320"
-                            height="240"
-                            autoPlay
-                        ></video>
-                        <canvas
-                            ref={this.ref$canvas}
-                            id="canvas"
-                            width="320"
-                            height="240"
-                            style={{
-                                display: "none",
-                            }}
-                        ></canvas>
+                                    this.setState((curState) => {
+                                        return {
+                                            ...curState,
+                                            modalContents: {
+                                                ...curState.modalContents,
+                                                name: newVal,
+                                            },
+                                        };
+                                    });
+                                }}
+                            />
 
-                        {this.state.modalContents &&
-                            this.state.modalContents.profilePic && (
-                                <img
-                                    src={this.state.modalContents.profilePic}
-                                />
-                            )}
+                            <video
+                                ref={this.ref$video}
+                                id="video"
+                                width="320"
+                                height="240"
+                                autoPlay
+                            ></video>
+                            <canvas
+                                ref={this.ref$canvas}
+                                id="canvas"
+                                width="320"
+                                height="240"
+                                style={{
+                                    display: "none",
+                                }}
+                            ></canvas>
 
-                        <br />
-                        <button onClick={this.startCamera.bind(this)}>
-                            Start Camera
-                        </button>
-                        <button onClick={this.takePhoto.bind(this)}>
-                            Take Picture
-                        </button>
-                        <button onClick={this.stopCamera.bind(this)}>
-                            Stop Camera
-                        </button>
-                    </Modal.Body>
+                            {this.state.modalContents &&
+                                this.state.modalContents.profilePic && (
+                                    <img
+                                        src={
+                                            this.state.modalContents.profilePic
+                                        }
+                                    />
+                                )}
 
-                    <Modal.Footer>
-                        <Button
-                            variant="secondary"
-                            onClick={() => {
-                                this.setState({
-                                    modalContents: undefined,
-                                });
-                            }}
-                        >
-                            Close
-                        </Button>
-                        <Button
-                            variant="primary"
-                            onClick={() => {
-                                if (this.state.modalContents) {
-                                    playersDb.savePlayer(
-                                        this.state.modalContents
-                                    );
+                            <br />
+                            <button onClick={this.startCamera.bind(this)}>
+                                Start Camera
+                            </button>
+                            <button onClick={this.takePhoto.bind(this)}>
+                                Take Picture
+                            </button>
+                            <button onClick={this.stopCamera.bind(this)}>
+                                Stop Camera
+                            </button>
+                        </Modal.Body>
+
+                        <Modal.Footer>
+                            <Button
+                                variant="secondary"
+                                onClick={() => {
                                     this.setState({
                                         modalContents: undefined,
                                     });
-                                }
+                                }}
+                            >
+                                Close
+                            </Button>
+                            <Button
+                                variant="primary"
+                                onClick={() => {
+                                    if (this.state.modalContents) {
+                                        playersDb.savePlayer(
+                                            this.state.modalContents
+                                        );
+                                        this.setState({
+                                            modalContents: undefined,
+                                        });
+                                    }
+                                }}
+                            >
+                                Save changes
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
+                </main>
+                <footer className="footer">
+                    <section className="left-wing">
+                        <h2>
+                            <Link to="/">&lt; Home</Link>
+                        </h2>
+                    </section>
+                    <section className="center">
+                        <Button
+                            className="center-button"
+                            onClick={() => {
+                                this.setState({
+                                    modalContents: {
+                                        id: v4(),
+                                        name: "",
+                                        profilePic: "",
+                                    },
+                                });
                             }}
                         >
-                            Save changes
+                            Add Player
                         </Button>
-                    </Modal.Footer>
-                </Modal>
-
-                <Button
-                    onClick={() => {
-                        this.setState({
-                            modalContents: {
-                                id: v4(),
-                                name: "",
-                                profilePic: "",
-                            },
-                        });
-                    }}
-                >
-                    Add Player
-                </Button>
-            </>
+                    </section>
+                    <section className="right-wing"></section>
+                </footer>
+            </div>
         );
     }
 }
