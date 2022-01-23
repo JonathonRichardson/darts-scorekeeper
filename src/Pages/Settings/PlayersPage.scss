@@ -1,4 +1,5 @@
 $gutter-size: 100px;
+@use "sass:math";
 
 .players-page {
     // Make the page the whole screen
@@ -59,7 +60,7 @@ $gutter-size: 100px;
                 // Make it a circle
                 width: $button-diameter;
                 height: $button-diameter;
-                border-radius: $button-diameter / 2;
+                border-radius: math.div($button-diameter, 2);
 
                 background-color: #112f3f;
                 border: 3px solid #195a85;
