@@ -5,6 +5,9 @@
   "keywords": [],
   "dependencies": {
     "@cypress/skip-test": "^2.6.1",
+    "@emotion/react": "^11.7.0",
+    "@emotion/styled": "^11.6.0",
+    "@mui/icons-material": "^5.2.0",
     "@mui/material": "^5.2.1",
     "@types/jest": "^27.0.2",
     "@types/react-bootstrap": "^0.32.27",
