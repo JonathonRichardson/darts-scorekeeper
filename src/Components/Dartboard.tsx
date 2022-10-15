@@ -48,6 +48,12 @@ export class Dartboard extends React.Component<IProps, IState> {
                 {/* Single Bull */}
                 <circle
                     r={OUTER_BULL_INSIDE_DIAMETER / 2}
+                    onClick={() => {
+                        this.props.onSegmentClick({
+                            type: "Inner",
+                            value: "Bull",
+                        });
+                    }}
                     data-qa-segment="Single Bull"
                     fill="green"
                 />
@@ -57,6 +63,12 @@ export class Dartboard extends React.Component<IProps, IState> {
                     r={BULL_INSIDE_DIAMETER / 2}
                     data-qa-segment="Double Bull"
                     fill="red"
+                    onClick={() => {
+                        this.props.onSegmentClick({
+                            type: "Double",
+                            value: "Bull",
+                        });
+                    }}
                 />
 
                 {/* {(() => {

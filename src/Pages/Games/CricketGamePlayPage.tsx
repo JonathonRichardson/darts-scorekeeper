@@ -223,6 +223,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                             "18",
                                             "19",
                                             "20",
+                                            "Bull",
                                         ].map((segmentId) => {
                                             return <li>{segmentId}</li>;
                                         })}

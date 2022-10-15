@@ -34,24 +34,26 @@ export class ScoreCard extends React.Component<IProps, IState> {
                 <h4>{playerName}</h4>
 
                 <ol>
-                    {["15", "16", "17", "18", "19", "20"].map((segmentId) => {
-                        let count = (score.marks as any)[segmentId] || 0;
+                    {["15", "16", "17", "18", "19", "20", "Bull"].map(
+                        (segmentId) => {
+                            let count = (score.marks as any)[segmentId] || 0;
 
-                        let display =
-                            count === 1 ? (
-                                "∕"
-                            ) : count === 2 ? (
-                                "✕"
-                            ) : count === 0 ? (
-                                <>&nbsp;</>
-                            ) : count === 3 ? (
-                                "⦻"
-                            ) : (
-                                "?"
-                            );
+                            let display =
+                                count === 1 ? (
+                                    "∕"
+                                ) : count === 2 ? (
+                                    "✕"
+                                ) : count === 0 ? (
+                                    <>&nbsp;</>
+                                ) : count === 3 ? (
+                                    "⦻"
+                                ) : (
+                                    "?"
+                                );
 
-                        return <li>{display}</li>;
-                    })}
+                            return <li>{display}</li>;
+                        }
+                    )}
 
                     <li>
                         <span data-qa-score-for={playerName}>

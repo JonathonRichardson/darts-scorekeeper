@@ -24,7 +24,23 @@ export const calculateScores = (
         let player = playerScores[playerIndex];
 
         for (var throwResult of turn) {
-            if (parseInt(throwResult.value) >= 15) {
+            if (throwResult.value == "Bull") {
+                let count = throwResult.type == "Double" ? 2 : 1;
+                let currentCumulativeMarks =
+                    player.marks[throwResult.value] || 0;
+
+                Array(count)
+                    .fill("")
+                    .forEach(() => {
+                        if ((currentCumulativeMarks = 3)) {
+                            player.points = player.points + 25;
+                        } else {
+                            currentCumulativeMarks = currentCumulativeMarks + 1;
+                        }
+                    });
+
+                player.marks[throwResult.value] = currentCumulativeMarks;
+            } else if (parseInt(throwResult.value) >= 15) {
                 let count =
                     throwResult.type === "Double"
                         ? 2
