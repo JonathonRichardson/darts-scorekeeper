@@ -75,12 +75,20 @@ export class PlayersPage extends React.Component<IProps, IState> {
     }
 
     async startCamera() {
-        let stream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: false,
-        });
-        if (this.ref$video.current) {
-            this.ref$video.current.srcObject = stream;
+        try {
+            let stream = await navigator.mediaDevices.getUserMedia({
+                video: true,
+                audio: false,
+            });
+            if (this.ref$video.current) {
+                this.ref$video.current.srcObject = stream;
+            }
+        } catch (e) {
+            console.error("Failed to open camera stream:", e);
+
+            alert(
+                "Failed to start camera.  You may need to grant permission for this app to use the camera."
+            );
         }
     }
 
@@ -163,9 +171,11 @@ export class PlayersPage extends React.Component<IProps, IState> {
                         <Modal.Header closeButton>
                             <Modal.Title>
                                 Create User{" "}
-                                {this.state.modalContents
-                                    ? ` (${this.state.modalContents.id}`
-                                    : null}{" "}
+                                <span className={"subtext"}>
+                                    {this.state.modalContents
+                                        ? ` (${this.state.modalContents.id})`
+                                        : null}
+                                </span>{" "}
                             </Modal.Title>
                         </Modal.Header>
 
