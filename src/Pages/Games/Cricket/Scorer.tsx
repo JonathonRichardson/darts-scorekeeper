@@ -24,6 +24,17 @@ export const calculateScores = (
         let player = playerScores[playerIndex];
 
         for (var throwResult of turn) {
+            let otherPlayersMarks = playerScores
+                .filter((p, i) => i !== playerIndex)
+                .map((player) => player?.marks[throwResult.value] ?? 0);
+
+            let playersThatAreNotClosedOut = otherPlayersMarks.filter(
+                (m) => m < 3
+            );
+
+            let notAllOtherPlayersAreClosedOut =
+                playersThatAreNotClosedOut.length > 0;
+
             if (throwResult.value == "Bull") {
                 let count = throwResult.type == "Double" ? 2 : 1;
                 let currentCumulativeMarks =
@@ -32,8 +43,12 @@ export const calculateScores = (
                 Array(count)
                     .fill("")
                     .forEach(() => {
+                        // Check if all other players have this closed out
+
                         if ((currentCumulativeMarks = 3)) {
-                            player.points = player.points + 25;
+                            if (notAllOtherPlayersAreClosedOut) {
+                                player.points = player.points + 25;
+                            }
                         } else {
                             currentCumulativeMarks = currentCumulativeMarks + 1;
                         }
@@ -53,8 +68,10 @@ export const calculateScores = (
                     .fill("")
                     .forEach(() => {
                         if (resultForValue === 3) {
-                            player.points =
-                                player.points + parseInt(throwResult.value);
+                            if (notAllOtherPlayersAreClosedOut) {
+                                player.points =
+                                    player.points + parseInt(throwResult.value);
+                            }
                         } else {
                             resultForValue = resultForValue + 1;
                         }
