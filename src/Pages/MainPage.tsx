@@ -34,7 +34,12 @@ export const MainPage: React.FunctionComponent<IProps> = (props) => {
                     //marginBottom: 60,
                 }}
             >
-                <Dartboard height="400" width="400" notClickable />
+                <Dartboard
+                    height="400"
+                    width="400"
+                    notClickable
+                    easyMode={false}
+                />
             </div>
 
             <Link className="link" to="/games/cricket">

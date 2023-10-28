@@ -17,6 +17,7 @@ interface IProps {
         type: ISegmentType;
         value: IDartValue | "Bull";
     }) => void;
+    easyMode: boolean;
 }
 
 interface IState {}
@@ -24,6 +25,19 @@ interface IState {}
 export class Dartboard extends React.Component<IProps, IState> {
     render() {
         let clickable = !this.props.notClickable;
+
+        let locals = {
+            OUTER_BULL_INSIDE_DIAMETER,
+            BULL_INSIDE_DIAMETER,
+        };
+
+        if (this.props.easyMode) {
+            locals.BULL_INSIDE_DIAMETER = locals.BULL_INSIDE_DIAMETER + 20;
+            locals.OUTER_BULL_INSIDE_DIAMETER =
+                locals.OUTER_BULL_INSIDE_DIAMETER + 50;
+            console.log(`using easy mode`, locals);
+        }
+
         return (
             <svg
                 height={this.props.height ? this.props.height : "100vh"}
@@ -44,32 +58,6 @@ export class Dartboard extends React.Component<IProps, IState> {
         /> */}
                 {/*         
         <circle r={OVERALL_BOARD_DIAMETER / 2} fill="black" /> */}
-
-                {/* Single Bull */}
-                <circle
-                    r={OUTER_BULL_INSIDE_DIAMETER / 2}
-                    onClick={() => {
-                        this.props.onSegmentClick({
-                            type: "Inner",
-                            value: "Bull",
-                        });
-                    }}
-                    data-qa-segment="Single Bull"
-                    fill="green"
-                />
-
-                {/* Double Bull */}
-                <circle
-                    r={BULL_INSIDE_DIAMETER / 2}
-                    data-qa-segment="Double Bull"
-                    fill="red"
-                    onClick={() => {
-                        this.props.onSegmentClick({
-                            type: "Double",
-                            value: "Bull",
-                        });
-                    }}
-                />
 
                 {/* {(() => {
           let outerR = 170 - 8;
@@ -118,6 +106,7 @@ export class Dartboard extends React.Component<IProps, IState> {
                             ).map((type) => {
                                 return (
                                     <Segment
+                                        easyMode={this.props.easyMode}
                                         value={value}
                                         segmentType={type}
                                         clickable={clickable}
@@ -130,6 +119,31 @@ export class Dartboard extends React.Component<IProps, IState> {
                         </>
                     );
                 })}
+                {/* Single Bull */}
+                <circle
+                    r={locals.OUTER_BULL_INSIDE_DIAMETER / 2}
+                    onClick={() => {
+                        this.props.onSegmentClick({
+                            type: "Inner",
+                            value: "Bull",
+                        });
+                    }}
+                    data-qa-segment="Single Bull"
+                    fill="green"
+                />
+
+                {/* Double Bull */}
+                <circle
+                    r={locals.BULL_INSIDE_DIAMETER / 2}
+                    data-qa-segment="Double Bull"
+                    fill="red"
+                    onClick={() => {
+                        this.props.onSegmentClick({
+                            type: "Double",
+                            value: "Bull",
+                        });
+                    }}
+                />
             </svg>
         );
     }

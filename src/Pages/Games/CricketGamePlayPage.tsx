@@ -149,7 +149,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
 
                 <section
                     className="main"
-                    style={{ display: "flex", overflow: "scroll" }}
+                    style={{ display: "flex", overflow: "auto" }}
                 >
                     {this.state.currentlyEnteringScore ? (
                         <>
@@ -159,6 +159,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                 onSegmentClick={this.handleSegmentClick.bind(
                                     this
                                 )}
+                                easyMode
                             />
 
                             <div style={{ display: "flex" }}>
