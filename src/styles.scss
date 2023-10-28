@@ -31,6 +31,7 @@ html {
     // min-height: stretch;
     // max-height: 100%;
     overflow: hidden;
+    min-width: 768px;
 }
 
 body {
@@ -43,4 +44,5 @@ body {
     max-height: 100%;
     // max-height: fit-content;
     overflow: hidden;
+    min-width: 768px;
 }

@@ -317,8 +317,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         disabled={game.turnNumber <= 1}
                         className="nav-button"
                     >
-                        {Math.round(window.visualViewport.height)},
-                        {Math.round(window.visualViewport.width)}
+                        {Math.round(this.props.viewport.height)},
+                        {Math.round(this.props.viewport.width)}
                     </Button>
                 </footer>
             </div>
