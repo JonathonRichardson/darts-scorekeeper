@@ -110,7 +110,10 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
         let playerHalfwayIndex = Math.ceil(game.players.length / 2);
 
         return (
-            <div className="cricket--game-play-page">
+            <div
+                className="cricket--game-play-page"
+                style={{ height: window.visualViewport.height }}
+            >
                 <header>
                     <Card className="blocks">
                         <Card.Subtitle>Current Round</Card.Subtitle>
@@ -137,7 +140,10 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                     </Card>
                 </header>
 
-                <section className="main" style={{ display: "flex" }}>
+                <section
+                    className="main"
+                    style={{ display: "flex", overflow: "auto" }}
+                >
                     {this.state.currentlyEnteringScore ? (
                         <>
                             <Dartboard
@@ -304,7 +310,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         disabled={game.turnNumber <= 1}
                         className="nav-button"
                     >
-                        Go To Previous Turn
+                        {window.visualViewport.height}
                     </Button>
                 </footer>
             </div>

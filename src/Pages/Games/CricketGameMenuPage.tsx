@@ -38,7 +38,7 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                 </ul> */}
 
                 <div className="card-container">
-                    {games.map((game) => {
+                    {games.reverse().map((game) => {
                         return (
                             <Card
                                 className="game-card"
@@ -58,29 +58,36 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                                             {game.players.map((p, index) => {
                                                 let dataURI =
                                                     p.playerInfo.profilePic;
-                                                var mime = dataURI
-                                                    .split(",")[0]
-                                                    .split(":")[1]
-                                                    .split(";")[0];
-                                                var binary = atob(
-                                                    dataURI.split(",")[1]
-                                                );
-                                                var array = [];
-                                                for (
-                                                    var i = 0;
-                                                    i < binary.length;
-                                                    i++
-                                                ) {
-                                                    array.push(
-                                                        binary.charCodeAt(i)
+
+                                                let url = "javascript:void";
+                                                if (dataURI) {
+                                                    var mime = dataURI
+                                                        .split(",")[0]
+                                                        .split(":")[1]
+                                                        .split(";")[0];
+                                                    var binary = atob(
+                                                        dataURI.split(",")[1]
                                                     );
+                                                    var array = [];
+                                                    for (
+                                                        var i = 0;
+                                                        i < binary.length;
+                                                        i++
+                                                    ) {
+                                                        array.push(
+                                                            binary.charCodeAt(i)
+                                                        );
+                                                    }
+                                                    let blob = new Blob(
+                                                        [new Uint8Array(array)],
+                                                        { type: mime }
+                                                    );
+                                                    url =
+                                                        URL.createObjectURL(
+                                                            blob
+                                                        );
                                                 }
-                                                let blob = new Blob(
-                                                    [new Uint8Array(array)],
-                                                    { type: mime }
-                                                );
-                                                let url =
-                                                    URL.createObjectURL(blob);
+
                                                 return (
                                                     <>
                                                         {index !== 0 && (

@@ -1,11 +1,12 @@
 .cricket--game-play-page {
+    //height: calc(100vh - 100px);
     height: 100vh;
     width: 100vw;
     display: grid;
     background-color: #0c1920;
     color: #20bdf7;
     grid-template-columns: 100px auto 100px;
-    grid-template-rows: 330px auto 300px;
+    grid-template-rows: 330px auto 150px;
     grid-template-areas:
         "header header header"
         ".      main   sidebar"
@@ -127,8 +128,11 @@
         justify-content: center;
         align-items: center;
 
+        padding: 0;
+
         .nav-button {
-            height: 200px;
+            //height: 200px;
+            padding: 10px;
             width: 200px;
             margin-right: 40px;
             background-color: #112f3f;
@@ -140,7 +144,8 @@
             justify-content: center;
             align-items: center;
             text-decoration: none;
-            font-size: 34px;
+
+            font-size: 1em;
         }
     }
 }

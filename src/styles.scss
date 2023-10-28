@@ -1,20 +1,25 @@
 .App {
-  font-family: sans-serif;
-  text-align: center;
+    font-family: sans-serif;
+    text-align: center;
 }
 
 path {
-  &.clickable {
- 
-    cursor: pointer;
-  }
+    &.clickable {
+        cursor: pointer;
+    }
 }
 
-path:hover{
-  // transform: scale(1.4);
-  // -webkit-transform: scale(1.4);
+path:hover {
+    // transform: scale(1.4);
+    // -webkit-transform: scale(1.4);
 
-  // transform-origin: 50% 50%;
-  // transition:.6s;
-  // transform-box: fill-box;
+    // transform-origin: 50% 50%;
+    // transition:.6s;
+    // transform-box: fill-box;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
