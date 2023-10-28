@@ -9,7 +9,12 @@ import Form from "react-bootstrap/Form";
 import { LocalStoragePlayerDB } from "../../data/PlayerDB";
 import moment from "moment";
 
-interface IProps {}
+interface IProps {
+    viewport: {
+        height: number;
+        width: number;
+    };
+}
 
 interface IState {
     playersForGame?: string[];
@@ -27,8 +32,8 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
             <div
                 className="pages--cricket"
                 style={{
-                    height: visualViewport.height,
-                    width: visualViewport.width,
+                    height: this.props.viewport.height,
+                    width: this.props.viewport.width,
                 }}
             >
                 {/* <ul className="tg-list">

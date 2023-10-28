@@ -7,7 +7,12 @@ import { CricketGamePlayPage } from "./Pages/Games/CricketGamePlayPage";
 import { PlayersPage } from "./Pages/Settings/PlayersPage";
 import * as React from "react";
 
-export function App() {
+export function App(props: {
+    viewport: {
+        height: number;
+        width: number;
+    };
+}) {
     return (
         <Router>
             <Switch>
@@ -19,13 +24,16 @@ export function App() {
                     path="/games/cricket/:id"
                     render={(params) => {
                         return (
-                            <CricketGamePlayPage gameId={params.match.params["id"]} />
+                            <CricketGamePlayPage
+                                viewport={props.viewport}
+                                gameId={params.match.params["id"]}
+                            />
                         );
                     }}
                 ></Route>
 
                 <Route path="/games/cricket">
-                    <CricketGameMenuPage />
+                    <CricketGameMenuPage viewport={props.viewport} />
                 </Route>
 
                 <Route path="/games/x01">

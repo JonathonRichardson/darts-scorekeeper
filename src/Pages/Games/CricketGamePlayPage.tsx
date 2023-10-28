@@ -19,6 +19,10 @@ import { ScoreCard } from "./CricketGamePlayPage.ScoreCard";
 
 interface IProps {
     gameId: string;
+    viewport: {
+        height: number;
+        width: number;
+    };
 }
 
 interface IState {
@@ -113,8 +117,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
             <div
                 className="cricket--game-play-page"
                 style={{
-                    height: window.visualViewport.height,
-                    width: window.visualViewport.width,
+                    height: props.viewport.height,
+                    width: props.viewport.width,
                 }}
             >
                 <header>
