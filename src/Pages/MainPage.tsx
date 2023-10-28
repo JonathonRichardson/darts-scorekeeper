@@ -7,7 +7,13 @@ interface IProps {}
 
 export const MainPage: React.FunctionComponent<IProps> = (props) => {
     return (
-        <div className="pages--main">
+        <div
+            className="pages--main"
+            style={{
+                height: visualViewport.height,
+                width: visualViewport.width,
+            }}
+        >
             <div
                 style={{
                     display: "flex",
@@ -25,7 +31,7 @@ export const MainPage: React.FunctionComponent<IProps> = (props) => {
                     alignItems: "center",
                     flexDirection: "row",
                     justifyContent: "center",
-                    marginBottom: 60,
+                    //marginBottom: 60,
                 }}
             >
                 <Dartboard height="400" width="400" notClickable />

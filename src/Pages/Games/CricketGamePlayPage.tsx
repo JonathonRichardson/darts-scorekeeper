@@ -112,7 +112,10 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
         return (
             <div
                 className="cricket--game-play-page"
-                style={{ height: window.visualViewport.height }}
+                style={{
+                    height: window.visualViewport.height,
+                    width: window.visualViewport.width,
+                }}
             >
                 <header>
                     <Card className="blocks">
@@ -127,8 +130,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         className="card-img"
                         alt="..."
                         style={{
-                            height: 300,
-                            width: 350,
+                            height: "100%",
+                            //width: 350,
                         }}
                     />
 
@@ -310,7 +313,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         disabled={game.turnNumber <= 1}
                         className="nav-button"
                     >
-                        {window.visualViewport.height}
+                        {window.visualViewport.height},
+                        {window.visualViewport.width}
                     </Button>
                 </footer>
             </div>

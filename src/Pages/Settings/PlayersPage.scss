@@ -13,8 +13,8 @@ $gutter-size: 100px;
 
     // Set up the grid with a header and a footer
     display: grid;
-    grid-template-columns: $gutter-size auto $gutter-size;
-    grid-template-rows: 200px auto 200px;
+    grid-template-columns: $gutter-size 1fr $gutter-size;
+    grid-template-rows: 200px 1fr 200px;
     grid-template-areas:
         "header header header"
         ".      main   ."

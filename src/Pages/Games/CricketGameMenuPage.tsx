@@ -24,7 +24,13 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
         let playersDB = new LocalStoragePlayerDB();
 
         return (
-            <div className="pages--cricket">
+            <div
+                className="pages--cricket"
+                style={{
+                    height: visualViewport.height,
+                    width: visualViewport.width,
+                }}
+            >
                 {/* <ul className="tg-list">
                     <li className="tg-list-item">
                         <h4>Double In</h4>
@@ -298,7 +304,7 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                         display: "flex",
                         flexDirection: "row",
                         justifyContent: "center",
-                        marginBottom: 40,
+                        //marginBottom: 40,
                     }}
                 >
                     <div
@@ -313,8 +319,8 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                             padding: "20px 10px",
                             border: "1px solid #195a85",
                             color: "#20bdf7",
-                            width: 200,
-                            height: 200,
+                            // width: 200,
+                            // //height: 200,
                             borderRadius: 21,
                         }}
                     >
@@ -323,13 +329,11 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                             style={{
                                 color: "#20bdf7",
                                 textDecoration: "none",
-                                fontSize: 40,
+                                fontSize: "1em",
                                 fontWeight: "bold",
                             }}
                         >
-                            &lt;
-                            <br />
-                            Home
+                            &lt; Home
                         </Link>
                     </div>
 
@@ -350,18 +354,17 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                             padding: "20px 10px",
                             border: "1px solid #195a85",
                             color: "#20bdf7",
-                            width: 200,
-                            height: 200,
-                            fontSize: 40,
+                            // width: 200,
+                            // height: 200,
+                            fontSize: "1em",
                             fontWeight: "bold",
                             borderRadius: 21,
                         }}
                     >
                         +
-                        <br />
                         <span
                             style={{
-                                fontSize: 30,
+                                fontSize: "1em",
                             }}
                         >
                             Create New Game
