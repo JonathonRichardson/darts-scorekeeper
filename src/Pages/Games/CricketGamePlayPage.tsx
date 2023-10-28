@@ -123,7 +123,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
             >
                 <header>
                     <Card className="blocks">
-                        <Card.Subtitle>Current Round</Card.Subtitle>
+                        <Card.Subtitle>Round</Card.Subtitle>
                         <Card.Title className="round-number">
                             {derivedState.round}
                         </Card.Title>
@@ -134,13 +134,13 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         className="card-img"
                         alt="..."
                         style={{
-                            height: "100%",
-                            //width: 350,
+                            height: 135,
+                            width: 135,
                         }}
                     />
 
                     <Card className="blocks">
-                        <Card.Subtitle>Current Player</Card.Subtitle>
+                        <Card.Subtitle>Player</Card.Subtitle>
                         <Card.Title className="round-number">
                             {derivedState.currentPlayer.playerInfo.name}
                         </Card.Title>
