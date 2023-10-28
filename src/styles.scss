@@ -19,7 +19,28 @@ path:hover {
 }
 
 // body {
-//     height: 100%;
-//     width: 100%;
 //     overflow: hidden;
 // }
+
+html {
+    // height: 100vh;
+    // min-height: 100vh;
+    // min-height: -moz-available;
+    // min-height: -webkit-fill-available;
+    // min-height: fill-available;
+    // min-height: stretch;
+    // max-height: 100%;
+    overflow: hidden;
+}
+
+body {
+    // height: 100vh;
+    // min-height: 100vh;
+    // min-height: -moz-available;
+    // min-height: -webkit-fill-available;
+    // min-height: fill-available;
+    // min-height: stretch;
+    max-height: 100%;
+    // max-height: fit-content;
+    overflow: hidden;
+}

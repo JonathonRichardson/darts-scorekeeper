@@ -145,7 +145,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
 
                 <section
                     className="main"
-                    style={{ display: "flex", overflow: "auto" }}
+                    style={{ display: "flex", overflow: "scroll" }}
                 >
                     {this.state.currentlyEnteringScore ? (
                         <>
@@ -313,8 +313,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         disabled={game.turnNumber <= 1}
                         className="nav-button"
                     >
-                        {window.visualViewport.height},
-                        {window.visualViewport.width}
+                        {Math.round(window.visualViewport.height)},
+                        {Math.round(window.visualViewport.width)}
                     </Button>
                 </footer>
             </div>
