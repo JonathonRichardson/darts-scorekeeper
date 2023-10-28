@@ -35,7 +35,7 @@ export const calculateScores = (
         let playerIndex = turnIndex % game.players.length;
         let player = playerScores[playerIndex];
 
-        for (var throwResult of turn) {
+        for (var throwResult of turn || []) {
             let otherPlayersMarks = playerScores
                 .filter((p, i) => i !== playerIndex)
                 .map((player) => player?.marks[throwResult.value] ?? 0);

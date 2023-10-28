@@ -32,8 +32,11 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
             <div
                 className="pages--cricket"
                 style={{
-                    height: this.props.viewport.height,
-                    width: this.props.viewport.width,
+                    // height: this.props.viewport.height,
+                    // width: this.props.viewport.width,
+                    display: "flex",
+                    overflow: "auto",
+                    flexDirection: "column",
                 }}
             >
                 {/* <ul className="tg-list">
@@ -48,7 +51,7 @@ export class CricketGameMenuPage extends React.Component<IProps, IState> {
                     </li>
                 </ul> */}
 
-                <div className="card-container">
+                <div className="card-container" style={{ flexShrink: 1 }}>
                     {games.reverse().map((game) => {
                         return (
                             <Card

@@ -30,19 +30,34 @@ html {
     // min-height: fill-available;
     // min-height: stretch;
     // max-height: 100%;
-    overflow: hidden;
-    min-width: 768px;
+    //overflow: hidden;
+    //min-width: 768px;
 }
 
 body {
     // height: 100vh;
-    // min-height: 100vh;
+    min-height: min(100vh, var(--viewport-diff));
     // min-height: -moz-available;
     // min-height: -webkit-fill-available;
     // min-height: fill-available;
     // min-height: stretch;
-    max-height: 100%;
+    max-height: min(100vh, var(--viewport-diff));
+
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
     // max-height: fit-content;
     overflow: hidden;
-    min-width: 768px;
+    //min-width: 768px;
+
+    .app-root {
+        /* height: 100%; */
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        justify-content: stretch;
+        align-items: stretch;
+        overflow: auto;
+    }
 }

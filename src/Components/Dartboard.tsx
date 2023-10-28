@@ -42,6 +42,9 @@ export class Dartboard extends React.Component<IProps, IState> {
                 height={this.props.height ? this.props.height : "100vh"}
                 width={this.props.width ? this.props.width : "100vw"}
                 viewBox="-250 -250 500 500"
+                style={{
+                    touchAction: "manipulation",
+                }}
                 //style={{ transform: "rotate(-0.25turn)" }}
             >
                 {/* <circle r="170" fill="black" />
