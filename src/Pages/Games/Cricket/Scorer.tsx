@@ -33,7 +33,8 @@ export const calculateScores = (
             );
 
             let notAllOtherPlayersAreClosedOut =
-                playersThatAreNotClosedOut.length > 0;
+                playersThatAreNotClosedOut.length > 0 ||
+                game.players.length === 1;
 
             if (throwResult.value == "Bull") {
                 let count = throwResult.type == "Double" ? 2 : 1;
@@ -45,7 +46,7 @@ export const calculateScores = (
                     .forEach(() => {
                         // Check if all other players have this closed out
 
-                        if ((currentCumulativeMarks = 3)) {
+                        if (currentCumulativeMarks === 3) {
                             if (notAllOtherPlayersAreClosedOut) {
                                 player.points = player.points + 25;
                             }

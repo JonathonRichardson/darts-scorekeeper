@@ -330,7 +330,8 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         className="nav-button"
                     >
                         {Math.round(this.props.viewport.height)},
-                        {Math.round(this.props.viewport.width)}
+                        {Math.round(this.props.viewport.width)}:
+                        {this.getGame().players.length}
                     </Button>
                 </footer>
             </div>

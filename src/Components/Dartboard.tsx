@@ -123,7 +123,7 @@ export class Dartboard extends React.Component<IProps, IState> {
                     r={locals.OUTER_BULL_INSIDE_DIAMETER / 2}
                     onClick={() => {
                         this.props.onSegmentClick({
-                            type: "Inner",
+                            type: "Outer",
                             value: "Bull",
                         });
                     }}
