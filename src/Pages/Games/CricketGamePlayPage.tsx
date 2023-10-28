@@ -36,6 +36,10 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
         this.state = {
             currentlyEnteringScore: false,
         };
+
+        this.getDerivedProps = this.getDerivedProps.bind(this);
+        this.handleNextTurn = this.handleNextTurn.bind(this);
+        this.getGame = this.getGame.bind(this);
     }
 
     private getDB(): IGameDB {
@@ -126,6 +130,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         <Card.Subtitle>Round</Card.Subtitle>
                         <Card.Title className="round-number">
                             {derivedState.round}
+                            {/* <span>({game.turnNumber})</span> */}
                         </Card.Title>
                     </Card>
 
@@ -175,7 +180,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                 }}
                             >
                                 {[0, 1, 2].map((roundIndex, i) => {
-                                    let round = currentTurn[roundIndex];
+                                    let round = (currentTurn || [])[roundIndex];
                                     return (
                                         <div
                                             style={{
@@ -401,13 +406,13 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                             let game = this.getGame();
 
                             // Don't let the game unwind completely
-                            if ((game.turnNumber = 1)) {
+                            if (game.turnNumber <= 1) {
                                 return;
                             }
 
                             let turns = [...game.turns];
 
-                            game.turns = turns.slice(0, -1);
+                            game.turns = turns.slice(0, -2);
                             game.turnNumber = game.turnNumber - 1;
 
                             this.getDB().saveGame(game);
@@ -416,9 +421,10 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                         disabled={game.turnNumber <= 1}
                         className="nav-button"
                     >
-                        {Math.round(this.props.viewport.height)},
+                        {/* {Math.round(this.props.viewport.height)},
                         {Math.round(this.props.viewport.width)}:
-                        {this.getGame().players.length}
+                        {this.getGame().players.length} */}
+                        Undo Turn
                     </Button>
                 </footer>
             </div>
