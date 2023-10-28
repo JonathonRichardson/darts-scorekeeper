@@ -92,6 +92,11 @@
                 background-color: white;
                 border-radius: 10px;
 
+                &.winner {
+                    outline-color: green;
+                    background-color: green;
+                }
+
                 li {
                     background-color: #205470;
                 }

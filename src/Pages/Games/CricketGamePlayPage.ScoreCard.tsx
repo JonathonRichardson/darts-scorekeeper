@@ -6,6 +6,7 @@ interface IProps {
     playerName: string;
     isCurrentPlayer: boolean;
     score: IPlayerScore;
+    isWinner: boolean;
 }
 
 interface IState {
@@ -27,11 +28,15 @@ export class ScoreCard extends React.Component<IProps, IState> {
 
         return (
             <div
-                className={["scorecard", isCurrentPlayer ? "active" : ""].join(
-                    " "
-                )}
+                className={[
+                    "scorecard",
+                    isCurrentPlayer || props.isWinner ? "active" : "",
+                    props.isWinner ? "winner" : "",
+                ].join(" ")}
             >
-                <h4>{playerName}</h4>
+                <h4>
+                    {playerName} {props.isWinner && <span> (winner)</span>}
+                </h4>
 
                 <ol>
                     {["15", "16", "17", "18", "19", "20", "Bull"].map(

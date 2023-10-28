@@ -13,7 +13,7 @@ import {
     IThrowResult,
     LocalStorageGameDB,
 } from "../../data/GamesDB";
-import { calculateScores } from "./Cricket/Scorer";
+import { calculateScores, isClosedOut } from "./Cricket/Scorer";
 import "./CricketGamePlayPage.scss";
 import { ScoreCard } from "./CricketGamePlayPage.ScoreCard";
 
@@ -221,20 +221,63 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                 {game.players
                                     .splice(0, playerHalfwayIndex)
                                     .map((player, playerIndex) => {
+                                        let isWinner = false;
+
+                                        console.log(
+                                            `Cehcking ${player.playerInfo.name}`
+                                        );
+                                        let currentPlayerScore =
+                                            this.calculateScores()[playerIndex];
+                                        let isCurrentlyClosedOut =
+                                            isClosedOut(currentPlayerScore);
+
+                                        if (isCurrentlyClosedOut) {
+                                            console.log(
+                                                "current user closed out"
+                                            );
+                                            if (
+                                                this.getGame().players
+                                                    .length === 1
+                                            ) {
+                                                isWinner = true;
+                                            } else if (
+                                                this.getGame().players.length >
+                                                1
+                                            ) {
+                                                if (
+                                                    currentPlayerScore.points >=
+                                                    Math.max(
+                                                        ...currentScores.map(
+                                                            (x) => x.points
+                                                        )
+                                                    )
+                                                ) {
+                                                    isWinner = true;
+                                                }
+                                            }
+                                        }
+
+                                        console.log(
+                                            `${player.playerInfo.name} is ${
+                                                isCurrentlyClosedOut
+                                                    ? "closed out"
+                                                    : "not closed out"
+                                            }`
+                                        );
+
                                         return (
                                             <ScoreCard
                                                 playerName={
                                                     player.playerInfo.name
                                                 }
-                                                score={
-                                                    currentScores[playerIndex]
-                                                }
+                                                score={currentPlayerScore}
                                                 isCurrentPlayer={
                                                     this.getDerivedProps()
                                                         .currentPlayer
                                                         .playerInfo.id ===
                                                     player.playerInfo.id
                                                 }
+                                                isWinner={isWinner}
                                             />
                                         );
                                     })}
@@ -260,6 +303,49 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                 {game.players
                                     .splice(-playerHalfwayIndex)
                                     .map((player, playerIndex) => {
+                                        let isWinner = false;
+
+                                        console.log(
+                                            `Cehcking ${player.playerInfo.name}`
+                                        );
+                                        let currentPlayerScore =
+                                            this.calculateScores()[
+                                                playerIndex + playerHalfwayIndex
+                                            ];
+                                        let isCurrentlyClosedOut =
+                                            isClosedOut(currentPlayerScore);
+
+                                        if (isCurrentlyClosedOut) {
+                                            if (
+                                                this.getGame().players
+                                                    .length === 1
+                                            ) {
+                                                isWinner = true;
+                                            } else if (
+                                                this.getGame().players.length >
+                                                1
+                                            ) {
+                                                if (
+                                                    currentPlayerScore.points >=
+                                                    Math.max(
+                                                        ...currentScores.map(
+                                                            (x) => x.points
+                                                        )
+                                                    )
+                                                ) {
+                                                    isWinner = true;
+                                                }
+                                            }
+                                        }
+
+                                        console.log(
+                                            `${player.playerInfo.name} is ${
+                                                isCurrentlyClosedOut
+                                                    ? "closed out"
+                                                    : "not closed out"
+                                            }`
+                                        );
+
                                         return (
                                             <ScoreCard
                                                 playerName={
@@ -277,6 +363,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                                         .playerInfo.id ===
                                                     player.playerInfo.id
                                                 }
+                                                isWinner={isWinner}
                                             />
                                         );
                                     })}

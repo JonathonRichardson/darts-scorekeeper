@@ -4,6 +4,18 @@ export interface ICricketOptionsConfig {}
 
 const DefaultCricketOptionsConfig: ICricketOptionsConfig = {};
 
+export function isClosedOut(score: IPlayerScore): boolean {
+    let scoreNumbers = ["15", "16", "17", "18", "19", "20", "Bull"];
+    console.log("score", score);
+    let closedOut = scoreNumbers
+        .map((x) => score.marks[x])
+        .filter((x) => x >= 3);
+
+    console.log("closed out numbers: ", closedOut);
+
+    return closedOut.length === scoreNumbers.length;
+}
+
 export const calculateScores = (
     game: IGame,
     configOverrides?: ICricketOptionsConfig
