@@ -34,9 +34,7 @@ export class ScoreCard extends React.Component<IProps, IState> {
                     props.isWinner ? "winner" : "",
                 ].join(" ")}
             >
-                <h4>
-                    {playerName} {props.isWinner && <span> (winner)</span>}
-                </h4>
+                <h4>{playerName}</h4>
 
                 <ol>
                     {["15", "16", "17", "18", "19", "20", "Bull"].map(
@@ -66,6 +64,10 @@ export class ScoreCard extends React.Component<IProps, IState> {
                         </span>
                     </li>
                 </ol>
+
+                <h3 style={{ color: "white", textAlign: "center" }}>
+                    {props.isWinner && <span>Winner!</span>}
+                </h3>
             </div>
         );
     }

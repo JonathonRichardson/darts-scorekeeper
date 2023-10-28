@@ -140,7 +140,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                     />
 
                     <Card className="blocks">
-                        <Card.Subtitle>Player</Card.Subtitle>
+                        <Card.Subtitle>Throwing</Card.Subtitle>
                         <Card.Title className="round-number">
                             {derivedState.currentPlayer.playerInfo.name}
                         </Card.Title>
