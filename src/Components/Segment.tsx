@@ -29,12 +29,6 @@ const getSegmentInfo = (
         local_TREBLE_AND_DOUBLE_WIDTH = 26;
         local_CENTER_BULL_TO_INSIDE_EDGE_OF_TREBLE_WIRE =
             local_CENTER_BULL_TO_INSIDE_EDGE_OF_TREBLE_WIRE - 20;
-
-        console.log(
-            `inner using easy mode`,
-            local_TREBLE_AND_DOUBLE_WIDTH,
-            local_CENTER_BULL_TO_INSIDE_EDGE_OF_TREBLE_WIRE
-        );
     }
 
     return {

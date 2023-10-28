@@ -152,7 +152,13 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                     style={{ display: "flex", overflow: "auto" }}
                 >
                     {this.state.currentlyEnteringScore ? (
-                        <>
+                        <div
+                            style={{
+                                display: "flex",
+                                flexDirection: "row",
+                                alignItems: "center",
+                            }}
+                        >
                             <Dartboard
                                 height="650"
                                 width="650"
@@ -162,7 +168,12 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                 easyMode
                             />
 
-                            <div style={{ display: "flex" }}>
+                            <div
+                                style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                }}
+                            >
                                 {[0, 1, 2].map((roundIndex, i) => {
                                     let round = currentTurn[roundIndex];
                                     return (
@@ -203,7 +214,7 @@ export class CricketGamePlayPage extends React.Component<IProps, IState> {
                                     Unthrow
                                 </Button>
                             </div>
-                        </>
+                        </div>
                     ) : (
                         <>
                             <div style={{ display: "flex" }}>

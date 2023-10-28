@@ -35,7 +35,6 @@ export class Dartboard extends React.Component<IProps, IState> {
             locals.BULL_INSIDE_DIAMETER = locals.BULL_INSIDE_DIAMETER + 20;
             locals.OUTER_BULL_INSIDE_DIAMETER =
                 locals.OUTER_BULL_INSIDE_DIAMETER + 50;
-            console.log(`using easy mode`, locals);
         }
 
         return (
